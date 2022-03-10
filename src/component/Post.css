@@ -1,0 +1,19 @@
+.post{
+    border: 1px solid #eee;
+    padding: 20px;
+    max-width: 700px;
+    margin: 20px auto;
+    border-radius: 5px;
+    font: 16px sans-serif;
+}
+
+.title{
+    margin: -20px -20px 0 -20px;
+    padding: 15px 20px;
+    background-color: #f5f5f5;
+}
+
+.body{
+    padding: 20px 0;
+}
+
