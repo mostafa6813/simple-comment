@@ -5,10 +5,10 @@ import './Comment.css';
 export default function Comment() {
     const [data, setData] = useState([]);
     const [isLoding, setIsLoding] = useState(false);
-
+    const url = 'http://localhost:4000/comment'
     useEffect(() => {
         setIsLoding(true);
-        axios.get('http://localhost:3000/comment')
+        axios.get(url)
             .then(res => {
                 setIsLoding(false);
                 setData(res.data);
@@ -17,7 +17,7 @@ export default function Comment() {
 
     const fetch = () => {
         setIsLoding(true);
-        axios.get('http://localhost:3000/comment')
+        axios.get(url)
             .then(res => {
                 setIsLoding(false);
                 setData(res.data);
@@ -27,7 +27,7 @@ export default function Comment() {
     const Formhandler = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
-        axios.post('http://localhost:3000/comment', {
+        axios.post(url, {
             id: Date.now().toString(),
             name: formData.get('name'),
             body: formData.get('title')
@@ -44,9 +44,9 @@ export default function Comment() {
     return <div>
         <form className="form" onSubmit={Formhandler}>
             name:<br />
-            <input name='name' /><br />
+            <input name='name' autoComplete="off"/><br />
             body:<br />
-            <input name='title' /><br />
+            <input name='title' autoComplete="off"/><br />
             <button type="submit">Send</button>
         </form>
         <div >
